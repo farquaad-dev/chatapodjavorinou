@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "chatapodjavorinou"
+version = "0.1.0"
+description = ""
+authors = ["farquaad-dev <kikusrybarova@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chata pod Javorinou</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+</head>
+<body>
+    <nav class="w-full fixed top-0 bg-gradient-to-b from-neutral-950/60 to-transparent h-48 text-white">
+        <div class="container mx-auto flex flex-row mt-4 gap-8 items-end">
+            <div class="w-72 h-24 bg-white/20"></div>
+            <a href="#">O chate</a>
+            <a href="#">Okolie</a>
+            <a href="#">Rezervácia</a>
+            <a href="#">Kontakt</a>
+        </div>
+    </nav>
+    <div class="w-full h-[calc(100vh+3rem)] bg-cover bg-center" style="background-image: url('/static/images/chata-_placeholder.jpg')">
+        <div class="w-full h-screen bg-neutral-950/70"></div>
+        <div class="w-full h-12 bg-gradient-to-b from-neutral-950/70 to-neutral-950"></div>
+    </div>
+    <footer class="w-full bg-neutral-950 h-48">
+
+    </footer>
+</body>
+</html>

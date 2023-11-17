@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "css-dev": "tailwindcss -i chatapodjavorinou/css/tailwind.css -o chatapodjavorinou/static/app.css --watch",
+    "css-prod": "tailwindcss -i chatapodjavorinou/css/tailwind.css -o chatapodjavorinou/static/app.css --minify"
+  },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }
