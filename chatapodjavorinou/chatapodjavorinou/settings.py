@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
     'django_feather',
+    'booking',
 ]
 
 MIDDLEWARE = [
