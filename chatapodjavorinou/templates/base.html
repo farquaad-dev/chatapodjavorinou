@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+{% load icon %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | Chata pod Javorinou</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body {% block body_extra %}{% endblock %}>
+{% block body %}
+    <nav class="w-full sticky top-0 text-brown bg-white/80 backdrop-blur-md shadow">
+        <div class="container mx-auto flex flex-row py-4 gap-8 items-end uppercase font-light text-lg leading-3">
+            <a class="block" href="{% url 'home' %}">
+                <img class="w-full" src="{% static 'images/logo-b.svg' %}">
+            </a>
+            <a href="{% url 'about' %}">O chate</a>
+            <a href="#">Okolie</a>
+            <a href="#">Rezervácia</a>
+            <a href="#">Kontakt</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+{% endblock %}
+
+    <footer class="w-full bg-neutral-950/90 text-white/70 backdrop-blur-sm">
+        <div class="container grid grid-cols-3 mx-auto py-8">
+            <div>
+                <p>Chata pod Javorinou</p>
+                <p>Valčianska dolina</p>
+            </div>
+
+            <div>
+                <p class="flex flex-row gap-3 align-baseline">
+                    <span class="inline-block">{% icon "mail" %}</span>
+                    <a href="mailto:info@chatapodjavorinou.sk">info@chatapodjavorinou.sk</a></p>
+                <p class="flex flex-row gap-3 align-baseline">
+                    <span class="inline-block">{% icon "phone" %}</span>
+                    <a href="tel:+421911794195">+421 911 794 195</a>
+                </p>
+            </div>
+
+            <div class="flex flex-row justify-end gap-4">
+                <a class="inline-block" href="https://instagram.com/chatapodjavorinou">{% icon "instagram" %}</a>
+                <a class="inline-block" href="https://facebook.com/chatapodjavorinou">{% icon "facebook" %}</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
