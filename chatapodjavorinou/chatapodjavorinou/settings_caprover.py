@@ -10,9 +10,10 @@ DEBUG = False
 
 # allowed hosts get parsed from a comma-separated list
 hosts = os.environ.get("CR_HOSTS") or ImproperlyConfigured("CR_HOSTS not set")
+origins = os.environ.get("CR_ORIGINS") or ImproperlyConfigured("CR_ORIGINS not set")
 try:
     ALLOWED_HOSTS = hosts.split(",")
-    CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+    CSRF_TRUSTED_ORIGINS = origins.split(",")
 except Exception:
     raise ImproperlyConfigured("CR_HOSTS could not be parsed")
 
