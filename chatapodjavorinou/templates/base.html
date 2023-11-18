@@ -13,6 +13,7 @@
 </head>
 
 <body {% block body_extra %}{% endblock %}>
+<div class="flex flex-col h-screen">
 {% block body %}
     <nav class="w-full sticky top-0 text-brown bg-white/80 backdrop-blur-md shadow">
         <div class="container mx-auto flex flex-row py-4 gap-8 items-end uppercase font-light text-lg leading-3">
@@ -28,7 +29,7 @@
         </div>
     </nav>
 
-    <div class="container mx-auto">
+    <div class="container grow mx-auto">
         {% block content %}
         {% endblock %}
     </div>
@@ -58,6 +59,7 @@
             </div>
         </div>
     </footer>
+</div>
 </body>
 
 </html>
