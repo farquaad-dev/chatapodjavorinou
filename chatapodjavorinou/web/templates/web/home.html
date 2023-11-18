@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 {% load static %}
+{% load icon %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Chata pod Javorinou</title>
     <link rel="stylesheet" href="{% static 'app.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="w-full fixed top-0 bg-gradient-to-b from-neutral-950/60 to-transparent h-48 text-white">
-        <div class="container mx-auto flex flex-row mt-4 gap-8 items-end">
-            <div class="w-72 h-24 bg-white/20"></div>
+        <div class="container mx-auto flex flex-row mt-4 gap-8 items-end uppercase font-light text-lg">
+            <img src="{% static 'images/logo-w.svg' %}">
             <a href="#">O chate</a>
             <a href="#">Okolie</a>
             <a href="#">Rezervácia</a>
@@ -20,8 +25,15 @@
         <div class="w-full h-screen bg-neutral-950/70"></div>
         <div class="w-full h-12 bg-gradient-to-b from-neutral-950/70 to-neutral-950"></div>
     </div>
-    <footer class="w-full bg-neutral-950 h-48">
-
+    <footer class="w-full bg-neutral-950 text-white/70">
+        <div class="container grid grid-cols-3 mx-auto py-8">
+            <div>
+                <p>Chata pod Javorinou</p>
+                <p>Valčianska dolina</p>
+            </div>
+            <div>chruste</div>
+            <div><a class="float-right" href="https://instagram.com/chatapodjavorinou">{% icon "instagram" %}</a></div>
+        </div>
     </footer>
 </body>
 </html>

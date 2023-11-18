@@ -38,6 +38,23 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-feather"
+version = "0.3.0"
+description = "A simple Tag to implement Feather Icons in Django"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-feather-0.3.0.tar.gz", hash = "sha256:ed60fbaed605ee6912a36a7be442d7150e2d48cc46bb40a8d9fc2da162b9c676"},
+    {file = "django_feather-0.3.0-py3-none-any.whl", hash = "sha256:cc3dcd9f42fa449d947130b31c154df14275edfd2e48909f5ea7f0ec7634badd"},
+]
+
+[package.dependencies]
+django = ">=2.0"
+
+[package.extras]
+testing = ["pytest", "pytest-django"]
+
+[[package]]
 name = "sqlparse"
 version = "0.4.4"
 description = "A non-validating SQL parser."
@@ -78,4 +95,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "e4eced06668528aaa9e80bad721f5d549dbd012da3b1adda959bb5a2ad7705de"
+content-hash = "a5990d440124a043b4548e4b01b8578745f1415d37a8c3ce9ff2a1400d5e7050"
