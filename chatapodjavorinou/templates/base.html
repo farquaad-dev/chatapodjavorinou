@@ -22,7 +22,7 @@
             </a>
             {% with request.resolver_match.url_name as url_name %}
             <a class="{% if url_name == 'about' %}underline {% endif %}hover:underline underline-offset-[1rem]" href="{% url 'about' %}">O chate</a>
-            <a class="{% if url_name == 'activities' %}underline {% endif %}hover:underline underline-offset-[1rem]" href="#">Okolie</a>
+            <a class="{% if url_name == 'activities' %}underline {% endif %}hover:underline underline-offset-[1rem]" href="{% url 'activities' %}">Okolie</a>
             <a class="{% if url_name == 'reservation' %}underline {% endif %}hover:underline underline-offset-[1rem]" href="{% url 'reservation' %}">Rezervácia</a>
             <a class="{% if url_name == 'contact' %}underline {% endif %}hover:underline underline-offset-[1rem]" href="{% url 'contact' %}">Kontakt</a>
             {% endwith %}

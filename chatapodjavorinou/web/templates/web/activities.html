@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load icon %}
+
+{% block title %}Okolie{% endblock %}
+
+{% block content %}
+<section class="grid grid-cols-2 gap-12 my-16">
+    <div class="flex flex-col justify-center gap-4 font-light">
+        <h1 class="text-3xl text-brown uppercase">Lyžovanie</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis tortor eu nisl porttitor consectetur. Nullam sem nisi, posuere id nibh in, rutrum gravida sapien. Duis dignissim eget lectus in lacinia. Mauris et risus porta, pretium turpis ac, sodales enim. Nam nisi diam, commodo vel ullamcorper sit amet, aliquet vitae elit. Integer consectetur luctus placerat. Pellentesque luctus risus ante. Ut risus sapien, tincidunt id turpis non.</p>
+    </div>
+    <div>
+        <img src="{% static 'images/obyvacka1.jpeg' %}">
+    </div>
+</section>
+
+<section class="grid grid-cols-2 gap-12 my-16">
+    <div>
+        <img src="{% static 'images/obyvacka1.jpeg' %}">
+    </div>
+    <div class="flex flex-col justify-center gap-4 font-light">
+        <h1 class="text-3xl text-brown uppercase">Cyklistika</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis tortor eu nisl porttitor consectetur. Nullam sem nisi, posuere id nibh in, rutrum gravida sapien. Duis dignissim eget lectus in lacinia. Mauris et risus porta, pretium turpis ac, sodales enim. Nam nisi diam, commodo vel ullamcorper sit amet, aliquet vitae elit. Integer consectetur luctus placerat. Pellentesque luctus risus ante. Ut risus sapien, tincidunt id turpis non.</p>
+    </div>
+</section>
+
+<section class="grid grid-cols-2 gap-12 my-16">
+    <div class="flex flex-col justify-center gap-4 font-light">
+        <h1 class="text-3xl text-brown uppercase">Turistika</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis tortor eu nisl porttitor consectetur. Nullam sem nisi, posuere id nibh in, rutrum gravida sapien. Duis dignissim eget lectus in lacinia. Mauris et risus porta, pretium turpis ac, sodales enim. Nam nisi diam, commodo vel ullamcorper sit amet, aliquet vitae elit. Integer consectetur luctus placerat. Pellentesque luctus risus ante. Ut risus sapien, tincidunt id turpis non.</p>
+    </div>
+    <div>
+        <img src="{% static 'images/obyvacka1.jpeg' %}">
+    </div>
+</section>
+{% endblock %}
