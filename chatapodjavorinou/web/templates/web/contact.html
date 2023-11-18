@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load icon %}
+
+{% block title %}Kontakt{% endblock %}
+
+{% block content %}
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12 my-16 font-light">
+    <div>
+        <div class="w-full h-[240px] md:h-[460px]">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2708.8987926912696!2d18.809877476394014!3d49.01251678984786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714fb72a4c9fc59%3A0xe9e74034ce993771!2sChata%20pod%20Javorinou!5e1!3m2!1ssk!2ssk!4v1700339839225!5m2!1ssk!2ssk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+    </div>
+
+    <div>
+        <h1 class="text-3xl text-brown uppercase mb-4">Kontakty</h1>
+        <div class="flex flex-col gap-4">
+            <p class="flex flex-row gap-3 align-baseline">
+                <span class="inline-block">{% icon "map" %}</span>
+                <span>Valčianska Dolina, 038 35 Valča</span>
+            </p>
+            <p class="flex flex-row gap-3 align-baseline mb-6">
+                <span class="inline-block">{% icon "map-pin" %}</span>
+                <span>49.012668084, 18.8124845834</span>
+            </p>
+            <p class="flex flex-row gap-3 align-baseline">
+                <span class="inline-block">{% icon "user" %}</span>
+                <span>Jozef Rybár</span>
+            </p>
+            <p class="flex flex-row gap-3 align-baseline">
+                <span class="inline-block">{% icon "mail" %}</span>
+                <a href="mailto:info@chatapodjavorinou.sk">info@chatapodjavorinou.sk</a>
+            </p>
+            <p class="flex flex-row gap-3 align-baseline">
+                <span class="inline-block">{% icon "phone" %}</span>
+                <a href="tel:+421911794195">+421 911 794 195</a>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

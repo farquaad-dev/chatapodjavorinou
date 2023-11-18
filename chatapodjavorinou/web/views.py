@@ -8,4 +8,9 @@ class HomePageView(TemplateView):
 
 
 class AboutPageView(TemplateView):
-    template_name = 'web/o_chate.html'
+    template_name = 'web/about.html'
+
+
+class ContactPageView(TemplateView):
+    template_name = 'web/contact.html'
+
