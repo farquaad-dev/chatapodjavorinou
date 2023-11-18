@@ -12,6 +12,7 @@ DEBUG = False
 hosts = os.environ.get("CR_HOSTS") or ImproperlyConfigured("CR_HOSTS not set")
 try:
     ALLOWED_HOSTS = hosts.split(",")
+    CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
 except Exception:
     raise ImproperlyConfigured("CR_HOSTS could not be parsed")
 
