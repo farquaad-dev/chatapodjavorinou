@@ -8,7 +8,49 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Rezervovať">
+    <section class="grid grid-cols-2 gap-12 my-16">
+        <div>
+            Tu bude kalendar
+            <div>
+                <label for="{{ form.date_start.id_for_label }}">Zaciatok</label>
+                {{ form.date_start }}
+            </div>
+            <div>
+                <label for="{{ form.date_end.id_for_label }}">Koniec</label>
+                {{ form.date_end }}
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+                <div>
+                    <label for="{{ form.name.id_for_label }}">Meno</label>
+                    {{ form.name }}
+                </div>
+                <div>
+                    <label for="{{ form.surname.id_for_label }}">Priezvisko</label>
+                    {{ form.surname }}
+                </div>
+            </div>
+            <div>
+                <label for="{{ form.email.id_for_label }}">E-mail</label>
+                {{ form.email }}
+            </div>
+            <div>
+                <label for="{{ form.phone.id_for_label }}">Telefón</label>
+                {{ form.phone }}
+            </div>
+            <div>
+                <label for="{{ form.people.id_for_label }}">Počet osôb</label>
+                {{ form.people }}
+            </div>
+            <div>
+                <label for="{{ form.message.id_for_label }}">Poznámka</label>
+                {{ form.message }}
+            </div>
+            <input type="submit" value="Rezervovať" class="bg-brown hover:bg-brown-light active:bg-black transition-all text-white px-4 py-2">
+        </div>
+    </section>
 </form>
+
+
 {% endblock %}
