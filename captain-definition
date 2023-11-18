@@ -10,6 +10,6 @@
     "WORKDIR /usr/src/app/chatapodjavorinou",
     "RUN poetry install",
     "EXPOSE 80",
-    "CMD sh /usr/src/app/utils/run.sh"
+    "CMD sh /usr/src/app/util/run.sh"
   ]
 }
