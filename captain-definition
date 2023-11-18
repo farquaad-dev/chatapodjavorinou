@@ -2,15 +2,14 @@
   "schemaVersion": 2,
   "dockerfileLines": [
     "FROM library/python:3.11-alpine",
-    "RUN apk update && apk upgrade && apk add --no-cache make g++ bash git openssh postgresql-dev curl poetry npm",
+    "RUN apk update && apk upgrade && apk add --no-cache poetry npm",
     "RUN mkdir -p /usr/src/app",
     "WORKDIR /usr/src/app",
     "COPY . /usr/src/app",
     "RUN npm install",
     "WORKDIR /usr/src/app/chatapodjavorinou",
     "RUN poetry install",
-    "COPY ./utils/ /usr/src/utils",
     "EXPOSE 80",
-    "CMD sh /usr/src/utils/run.sh"
+    "CMD sh /usr/src/app/utils/run.sh"
   ]
 }
