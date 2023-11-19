@@ -13,7 +13,7 @@
 </head>
 
 <body {% block body_extra %}{% endblock %}>
-<div class="flex flex-col h-screen">
+<div class="min-h-screen">
 {% block body %}
     <nav class="w-full sticky top-0 text-brown bg-white/80 backdrop-blur-md shadow">
         <div class="container mx-auto flex flex-row py-4 gap-8 items-end uppercase font-light text-lg leading-3">
@@ -36,7 +36,7 @@
 
 {% endblock %}
 
-    <footer class="w-full bg-neutral-950/90 text-white/70 backdrop-blur-sm">
+    <footer class="sticky top-[100vh] w-full bg-neutral-950/90 text-white/70 backdrop-blur-sm">
         <div class="container grid grid-cols-3 mx-auto py-8">
             <div>
                 <p>Chata pod Javorinou</p>
