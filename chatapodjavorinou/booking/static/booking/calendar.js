@@ -19,12 +19,12 @@ let showMonth = new Date().getMonth();
 let showYear = new Date().getFullYear();
 
 const Calendar = (year, month) => {
-    const cnt = new Date(year, month, 0).getDate();
+    const cnt = new Date(year, month+1, 0).getDate();
     const start = new Date(year, month, 1).getDay();
 
     let days = [];
     let resI = 0;
-    for (let d = 1; d < cnt; d++) {
+    for (let d = 1; d <= cnt; d++) {
         let cd = new Date(year, month, d);
         let obj = {
             date: cd,
@@ -45,7 +45,7 @@ const Calendar = (year, month) => {
 
     return `
         <div class="flex flex-col">
-            <div class="text-center pb-4 text-xl">${months[month]} 2023</div>
+            <div class="text-center pb-4 text-xl">${months[month]} ${year}</div>
             <div class="grid grid-cols-7 text-center text-neutral-600 py-2">
                 ${weekdays.map((v) => `<span>${v}</span>`).join('')}
             </div>
