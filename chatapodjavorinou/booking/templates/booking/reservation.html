@@ -5,6 +5,13 @@
 
 {% block title %}Rezervácia{% endblock %}
 
+{% block extra_head_content %}
+    {{ reservations|json_script:"json-reservations" }}
+    {{ days|json_script:"json-weekdays" }}
+    {{ months|json_script:"json-months" }}
+    <script defer src="{% static 'booking/calendar.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 <form method="post">
     {% csrf_token %}
@@ -13,19 +20,23 @@
         <div class="bg-red-200 border-l-4 border-red-700 text-red-700 px-4 py-2 my-4">{{ error }}</div>
     {% endfor %}
 
-    <section class="grid grid-cols-2 gap-12 my-16">
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 my-16">
         <div>
-            Tu bude kalendar
-            <div>
-                <label for="{{ form.date_start.id_for_label }}">Zaciatok</label>
-                {{ form.date_start }}
-                <span class="text-red-700">{{ form.date_start.errors }}</span>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <button type="button" id="calendar-prev" class="hover:-translate-x-1 transition-transform">
+                    <span class="invisible sm:visible">{% icon "chevrons-left" %}</span>
+                    <span class="visible sm:invisible">{% icon "chevrons-up" %}</span>
+                </button>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 grow" id="calendar"></div>
+                <button type="button" id="calendar-next" class="hover:translate-x-1 transition-transform">
+                    <span class="invisible sm:visible">{% icon "chevrons-right" %}</span>
+                    <span class="visible sm:invisible">{% icon "chevrons-down" %}</span>
+                </button>
             </div>
-            <div>
-                <label for="{{ form.date_end.id_for_label }}">Koniec</label>
-                {{ form.date_end }}
-                <span class="text-red-700">{{ form.date_end.errors }}</span>
-            </div>
+            {{ form.date_start.as_hidden }}
+            {{ form.date_end.as_hidden }}
+            <span class="text-red-700">{{ form.date_start.errors }}</span>
+            <span class="text-red-700">{{ form.date_end.errors }}</span>
         </div>
         <div class="flex flex-col gap-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
@@ -64,6 +75,4 @@
         </div>
     </section>
 </form>
-
-
 {% endblock %}
