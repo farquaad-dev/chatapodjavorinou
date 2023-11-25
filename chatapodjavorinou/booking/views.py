@@ -17,7 +17,7 @@ class ReservationFormView(FormView):
         context = super().get_context_data(**kwargs)
 
         res = []
-        for reservation in Reservation.objects.filter(date_start__gte=date.today()):
+        for reservation in Reservation.objects.filter(date_start__gte=date.today()).order_by('date_start'):
             res.append({
                 'from': reservation.date_start,
                 'to': reservation.date_end,
