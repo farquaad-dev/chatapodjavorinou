@@ -21,24 +21,10 @@
     {% endfor %}
 
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 my-16">
-        <div>
-            <div class="flex flex-col sm:flex-row gap-2">
-                <button type="button" id="calendar-prev" class="hover:-translate-x-1 transition-transform">
-                    <span class="invisible sm:visible">{% icon "chevrons-left" %}</span>
-                    <span class="visible sm:invisible">{% icon "chevrons-up" %}</span>
-                </button>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 grow" id="calendar"></div>
-                <button type="button" id="calendar-next" class="hover:translate-x-1 transition-transform">
-                    <span class="invisible sm:visible">{% icon "chevrons-right" %}</span>
-                    <span class="visible sm:invisible">{% icon "chevrons-down" %}</span>
-                </button>
-            </div>
-            {{ form.date_start.as_hidden }}
-            {{ form.date_end.as_hidden }}
-            <span class="text-red-700">{{ form.date_start.errors }}</span>
-            <span class="text-red-700">{{ form.date_end.errors }}</span>
-        </div>
         <div class="flex flex-col gap-4">
+            <h1 class="text-3xl text-brown uppercase font-light mb-6">
+                <span class="pr-4 mr-4 border-r border-r-brown">1</span>Kontaktné údaje
+            </h1>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
                 <div>
                     <label for="{{ form.name.id_for_label }}">Meno</label>
@@ -71,7 +57,42 @@
                 {{ form.message }}
                 <span class="text-red-700">{{ form.message.errors }}</span>
             </div>
-            <input type="submit" value="Rezervovať" class="bg-brown hover:bg-brown-light active:bg-black transition-all text-white px-4 py-2">
+        </div>
+        <div class="flex flex-col gap-4">
+            <h1 class="text-3xl text-brown uppercase font-light mb-6">
+                <span class="pr-4 mr-4 border-r border-r-brown">2</span>Výber termínu
+            </h1>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <button type="button" id="calendar-prev" class="hover:-translate-x-1 transition-transform">
+                    <span class="invisible sm:visible">{% icon "chevrons-left" %}</span>
+                    <span class="visible sm:invisible">{% icon "chevrons-up" %}</span>
+                </button>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 grow" id="calendar"></div>
+                <button type="button" id="calendar-next" class="hover:translate-x-1 transition-transform">
+                    <span class="invisible sm:visible">{% icon "chevrons-right" %}</span>
+                    <span class="visible sm:invisible">{% icon "chevrons-down" %}</span>
+                </button>
+            </div>
+            {{ form.date_start.as_hidden }}
+            {{ form.date_end.as_hidden }}
+            <span class="text-red-700">{{ form.date_start.errors }}</span>
+            <span class="text-red-700">{{ form.date_end.errors }}</span>
+            <div class="flex flex-row bg-neutral-100 items-stretch">
+                <div class="summary-placeholder grow mx-4 my-5">
+                    Vyberte dátum
+                </div>
+                <div class="summary-info grow mx-4 my-2">
+                    <p class="text-lg" id="summary-dates">11.2.2024 - 19.2.2025</p>
+                    <p class="text-sm text-neutral-600" id="summary-days">8 dní</p>
+                </div>
+                <div class="summary-info mx-4 my-2 text-right">
+                    <p class="text-lg" id="summary-price">1250€</p>
+                    <p class="text-sm text-neutral-600">orientačná cena</p>
+                </div>
+                <button type="submit" id="submit-btn" class="bg-brown hover:bg-brown-light active:bg-black transition-all text-white px-4 py-2">
+                    Rezervovať
+                </button>
+            </div>
         </div>
     </section>
 </form>

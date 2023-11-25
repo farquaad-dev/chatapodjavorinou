@@ -25,6 +25,8 @@ const dateOrNull = (val) => {
     return d;
 }
 
+const formatDate = (date) => date ? `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}` : '';
+
 let dateRange = {
     _start: dateOrNull(form_date_start.value),
     _end: dateOrNull(form_date_end.value),
@@ -37,8 +39,9 @@ let dateRange = {
         if (date <= new Date()) return;
 
         this._start = date;
-        form_date_start.value = date ? `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}` : '';
+        form_date_start.value = formatDate(date);
         updateHighlight();
+        updateSummary();
     },
 
     get end() {
@@ -59,8 +62,9 @@ let dateRange = {
             this._end = date;
         }
 
-        form_date_end.value = date ? `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}` : '';
+        form_date_end.value = formatDate(date);
         updateHighlight();
+        updateSummary();
     },
 
     get hoverEnd() {
@@ -75,6 +79,7 @@ let dateRange = {
 
         this._hoverEnd = date;
         updateHighlight();
+        updateSummary();
     },
 }
 
@@ -141,6 +146,52 @@ const updateHighlight = () => {
             element.classList.remove('rounded-r-full');
         }
     }
+}
+
+const updateSummary = () => {
+    console.log(dateRange);
+    const printDate = (date) => `${date.getDate()}. ${date.getMonth()+1}. ${date.getFullYear()}`;
+    const pluralize = (days) => {
+        if (days <= 1) return 'noc';
+        else if (days <= 4) return 'noci';
+        return 'nocí';
+    }
+
+    let end = dateRange.end ? dateRange.end : dateRange._hoverEnd;
+    const ok = dateRange.start && end;
+
+    for (const e of document.querySelectorAll('.summary-placeholder')) {
+        if (ok) e.classList.add('hidden');
+        else e.classList.remove('hidden');
+    }
+
+    for (const e of document.querySelectorAll('.summary-info')) {
+        if (ok) e.classList.remove('hidden');
+        else e.classList.add('hidden');
+    }
+
+    const btn = document.querySelector('#submit-btn');
+    if (!ok) {
+        btn.setAttribute('disabled', 'disabled');
+        btn.classList.add('!bg-neutral-400', '!cursor-not-allowed');
+    } else {
+        btn.removeAttribute('disabled');
+        btn.classList.remove('!bg-neutral-400', '!cursor-not-allowed');
+    }
+
+    if (!ok) return;
+
+    if (end < dateRange.start) end = dateRange.start;
+
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const diffDays = Math.round(Math.abs((end - dateRange.start) / oneDay));
+
+    const dates = document.querySelector('#summary-dates');
+    const days = document.querySelector('#summary-days');
+    const price = document.querySelector('#summary-price');
+    dates.innerHTML = `${printDate(dateRange.start)} - ${printDate(end)}`;
+    days.innerHTML = `${diffDays} ${pluralize(diffDays)}`;
+    price.innerHTML = `${diffDays*350}€`
 }
 
 const Calendar = (year, month) => {
@@ -222,6 +273,7 @@ const redraw = () => {
     }
 
     updateHighlight();
+    updateSummary();
 }
 
 redraw();
