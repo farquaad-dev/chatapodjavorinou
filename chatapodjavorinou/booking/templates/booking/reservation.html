@@ -8,16 +8,23 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
+
+    {% for error in form.non_field_errors %}
+        <div class="bg-red-200 border-l-4 border-red-700 text-red-700 px-4 py-2 my-4">{{ error }}</div>
+    {% endfor %}
+
     <section class="grid grid-cols-2 gap-12 my-16">
         <div>
             Tu bude kalendar
             <div>
                 <label for="{{ form.date_start.id_for_label }}">Zaciatok</label>
                 {{ form.date_start }}
+                <span class="text-red-700">{{ form.date_start.errors }}</span>
             </div>
             <div>
                 <label for="{{ form.date_end.id_for_label }}">Koniec</label>
                 {{ form.date_end }}
+                <span class="text-red-700">{{ form.date_end.errors }}</span>
             </div>
         </div>
         <div class="flex flex-col gap-4">
@@ -25,27 +32,33 @@
                 <div>
                     <label for="{{ form.name.id_for_label }}">Meno</label>
                     {{ form.name }}
+                    <span class="text-red-700">{{ form.name.errors }}</span>
                 </div>
                 <div>
                     <label for="{{ form.surname.id_for_label }}">Priezvisko</label>
                     {{ form.surname }}
+                    <span class="text-red-700">{{ form.surname.errors }}</span>
                 </div>
             </div>
             <div>
                 <label for="{{ form.email.id_for_label }}">E-mail</label>
                 {{ form.email }}
+                <span class="text-red-700">{{ form.email.errors }}</span>
             </div>
             <div>
                 <label for="{{ form.phone.id_for_label }}">Telefón</label>
                 {{ form.phone }}
+                <span class="text-red-700">{{ form.phone.errors }}</span>
             </div>
             <div>
                 <label for="{{ form.people.id_for_label }}">Počet osôb</label>
                 {{ form.people }}
+                <span class="text-red-700">{{ form.people.errors }}</span>
             </div>
             <div>
                 <label for="{{ form.message.id_for_label }}">Poznámka</label>
                 {{ form.message }}
+                <span class="text-red-700">{{ form.message.errors }}</span>
             </div>
             <input type="submit" value="Rezervovať" class="bg-brown hover:bg-brown-light active:bg-black transition-all text-white px-4 py-2">
         </div>
