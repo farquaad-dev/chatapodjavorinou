@@ -17,9 +17,6 @@ const reservations = JSON.parse(document.querySelector('#json-reservations').tex
 const weekdays = JSON.parse(document.querySelector('#json-weekdays').textContent);
 const months = JSON.parse(document.querySelector('#json-months').textContent);
 
-let showMonth = new Date().getMonth();
-let showYear = new Date().getFullYear();
-
 const dateOrNull = (val) => {
     if (!val || val === '') return null;
     const d = new Date(val);
@@ -79,6 +76,14 @@ let dateRange = {
         this._hoverEnd = date;
         updateHighlight();
     },
+}
+
+let showMonth = new Date().getMonth();
+let showYear = new Date().getFullYear();
+
+if (dateRange.start) {
+    showMonth = dateRange.start.getMonth();
+    showYear = dateRange.start.getFullYear();
 }
 
 const handleClick = (date) => {
