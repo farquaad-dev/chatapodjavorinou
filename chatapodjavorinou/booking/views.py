@@ -1,7 +1,8 @@
 from datetime import date
 
+from django.urls import reverse_lazy
 from django.utils import dates
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 
 from booking.forms import ReservationForm
 from booking.models import Reservation
@@ -11,7 +12,7 @@ from booking.models import Reservation
 class ReservationFormView(FormView):
     template_name = 'booking/reservation.html'
     form_class = ReservationForm
-    success_url = '/'
+    success_url = reverse_lazy('success')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -32,3 +33,7 @@ class ReservationFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class SuccessPageView(TemplateView):
+    template_name = 'booking/success.html'

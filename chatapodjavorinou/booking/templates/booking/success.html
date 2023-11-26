@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load icon %}
+
+{% block title %}Rezervácia úspešná{% endblock %}
+
+{% block content %}
+    <section class="flex flex-col items-center justify-center gap-8 my-16 max-w-2xl mx-auto text-center">
+        <p class="h-24 text-brown">{% icon "check-circle" height="100%" width="auto" %}</p>
+        <h1 class="text-4xl text-brown font-light uppercase">Rezervácia úspešná</h1>
+        <h2 class="text-xl text-brown">Vašu žiadosť o rezerváciu do niekoľkých dní preveríme a o jej potvrdení Vás budeme informovať e-mailom.</h2>
+    </section>
+{% endblock %}
