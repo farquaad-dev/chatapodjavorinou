@@ -2,6 +2,8 @@
 
 ## Inštalácia
 
+Na spustenie je potrebné mať [NodeJS](https://nodejs.org/en), [Python 3.9](https://python.org/) a [Poetry](https://python-poetry.org/docs/#installation).
+
 Inštalácia dependencies:
 
 ```bash
